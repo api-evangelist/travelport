@@ -7,11 +7,109 @@ tags:
   - Travel
   - Travel Technology
   - Reservations
+  - GDS
+  - NDC
+  - Flights
+  - Hotels
+  - Payments
 description: 'A global travel technology company connecting travel providers with online and offline travel agencies. Operates a commerce platform facilitating airline, hotel, and car rental bookings through its Galileo, Apollo, and Worldspan systems.'
 created: '2026-05-05'
-modified: '2026-05-05'
+modified: '2026-05-16'
 specificationVersion: '0.19'
-apis: []
+apis:
+  - aid: travelport:trip-services-flights
+    name: Travelport TripServices Flights API
+    description: 'RESTful JSON API providing end-to-end air travel workflows including search, price, book, ticket, cancel, and exchange. Covers both GDS and NDC content from 400+ airlines and low-cost carriers, with workbench-based or single-payload booking flows.'
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.travelport.com/apis/flights
+    baseURL: https://api.travelport.net/11
+    tags:
+      - Flights
+      - Air
+      - GDS
+      - NDC
+      - Reservations
+      - Ticketing
+      - Travel
+    properties:
+      - type: Documentation
+        url: https://developer.travelport.com/apis/flights
+      - type: GettingStarted
+        url: https://developer.travelport.com/
+      - type: Sandbox
+        url: https://api.pp.travelport.net/11
+      - type: Production
+        url: https://api.travelport.net/11
+      - type: Authentication
+        url: https://developer.travelport.com/
+    contact:
+      - FN: Travelport Developer Support
+        url: https://developer.travelport.com/support
+  - aid: travelport:trip-services-stays
+    name: Travelport TripServices Stays API
+    description: 'RESTful JSON API for hotel search, availability, rules, reservation management, and modification across 180+ countries. Supports searches by coordinates, address, airport/city code, or property ID, plus passive-segment bookings for external suppliers.'
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.travelport.com/apis/stays/12.1.2
+    baseURL: https://api.travelport.net/11
+    tags:
+      - Stays
+      - Hotels
+      - Lodging
+      - Reservations
+      - Travel
+    properties:
+      - type: Documentation
+        url: https://developer.travelport.com/apis/stays/12.1.2
+      - type: Sandbox
+        url: https://api.pp.travelport.net/11
+      - type: Production
+        url: https://api.travelport.net/11
+    contact:
+      - FN: Travelport Developer Support
+        url: https://developer.travelport.com/support
+  - aid: travelport:trip-services-pay
+    name: Travelport TripServices Pay API
+    description: 'RESTful JSON payments API enabling online travel agencies to perform credit card authorizations, address validations, 3D Secure transactions, and reversals against designated merchant vendors. Current version 11.33.0.'
+    image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+    humanURL: https://developer.travelport.com/apis/pay
+    baseURL: https://api.travelport.net/11/payment
+    tags:
+      - Payments
+      - 3D Secure
+      - Authorizations
+      - Travel
+    properties:
+      - type: Documentation
+        url: https://developer.travelport.com/apis/pay
+      - type: Sandbox
+        url: https://api.pp.travelport.net/11/payment
+      - type: Production
+        url: https://api.travelport.net/11/payment
+    contact:
+      - FN: Travelport Developer Support
+        url: https://developer.travelport.com/support
 common:
   - type: Website
     url: https://www.travelport.com/
+  - type: Developer
+    url: https://developer.travelport.com/
+  - type: GettingStarted
+    url: https://developer.travelport.com/getting-started
+  - type: DevKits
+    url: https://developer.travelport.com/downloads
+  - type: Support
+    url: https://developer.travelport.com/support
+  - type: LegacyPortal
+    url: https://support.travelport.com/
+  - type: About
+    url: https://www.travelport.com/about-us
+  - type: News
+    url: https://www.travelport.com/news
+  - type: Investors
+    url: https://investors.travelport.com/
+  - type: Careers
+    url: https://www.travelport.com/careers
+maintainers:
+  - FN: API Evangelist
+    email: info@apievangelist.com
+    X: '@apievangelist'
