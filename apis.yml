@@ -89,6 +89,10 @@ apis:
       - FN: Travelport Developer Support
         url: https://developer.travelport.com/support
 common:
+  - type: GitHubOrganization
+    url: https://github.com/travelport
+  - type: LinkedIn
+    url: https://www.linkedin.com/company/travelport
   - type: Website
     url: https://www.travelport.com/
   - type: Developer
