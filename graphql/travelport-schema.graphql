@@ -1,0 +1,1024 @@
+"""
+Travelport TripServices GraphQL Schema
+Covers the Travelport Universal API / TripServices REST platform:
+Air (GDS + NDC), Stays (Hotels), Pay (Payments), Rail, Car, Agency, Profile.
+Developer portal: https://developer.travelport.com/
+"""
+
+# ─── Scalars ────────────────────────────────────────────────────────────────
+
+scalar DateTime
+scalar Date
+scalar Decimal
+scalar JSON
+
+# ─── Enums ──────────────────────────────────────────────────────────────────
+
+enum BookingStatusEnum {
+  CONFIRMED
+  ON_HOLD
+  CANCELLED
+  TICKETED
+  OPEN
+  QUEUED
+}
+
+enum PassengerTypeEnum {
+  ADT
+  CHD
+  INF
+  INS
+  YTH
+  GOV
+  MIL
+  SRC
+}
+
+enum CabinClass {
+  ECONOMY
+  PREMIUM_ECONOMY
+  BUSINESS
+  FIRST
+}
+
+enum FareType {
+  PUBLIC
+  PRIVATE
+  NEGOTIATED
+  NDC
+}
+
+enum PaymentMethod {
+  CREDIT_CARD
+  DEBIT_CARD
+  AGENCY_CREDIT
+  VOUCHER
+  CASH
+}
+
+enum DocumentType {
+  PASSPORT
+  NATIONAL_ID
+  DRIVERS_LICENSE
+  VISA
+  KNOWN_TRAVELER
+  REDRESS_NUMBER
+}
+
+enum RoomBedType {
+  KING
+  QUEEN
+  DOUBLE
+  TWIN
+  SINGLE
+  SUITE
+}
+
+enum CarCategory {
+  MINI
+  ECONOMY
+  COMPACT
+  INTERMEDIATE
+  STANDARD
+  FULL_SIZE
+  PREMIUM
+  LUXURY
+  MINIVAN
+  SUV
+  VAN
+}
+
+enum RailClass {
+  STANDARD
+  FIRST
+  BUSINESS
+  SLEEPER
+}
+
+enum TokenType {
+  BEARER
+  OAUTH2
+  API_KEY
+}
+
+enum NotificationChannel {
+  EMAIL
+  SMS
+  WEBHOOK
+  PUSH
+}
+
+enum ContentType {
+  TEXT
+  IMAGE
+  VIDEO
+  PDF
+  STRUCTURED
+}
+
+# ─── Booking ─────────────────────────────────────────────────────────────────
+
+"""Top-level booking / PNR record stored in the Travelport GDS."""
+type Booking {
+  id: ID!
+  locator: String!
+  status: BookingStatus!
+  details: BookingDetails
+  passengers: [Passenger!]
+  air: [Air!]
+  hotel: [Hotel!]
+  car: [Car!]
+  rail: [Rail!]
+  payment: Payment
+  tickets: [Ticket!]
+  queue: Queue
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+  expiresAt: DateTime
+}
+
+"""Current status and history of a booking."""
+type BookingStatus {
+  code: BookingStatusEnum!
+  label: String!
+  description: String
+  changedAt: DateTime
+  changedBy: String
+}
+
+"""Extended metadata for a booking record."""
+type BookingDetails {
+  pnrLocator: String!
+  gdsLocator: String
+  agencyLocator: String
+  agencyId: String
+  agentId: String
+  currency: String!
+  totalAmount: Decimal!
+  remarks: [String!]
+  queueNumber: String
+  ticketingDeadline: DateTime
+  sourceSystem: String
+}
+
+# ─── Air ─────────────────────────────────────────────────────────────────────
+
+"""Air travel component of a booking or offer."""
+type Air {
+  id: ID!
+  offer: AirOffer
+  details: AirDetails
+  segments: [AirSegment!]!
+  passengers: [Passenger!]
+  fare: Fare
+  tickets: [Ticket!]
+}
+
+"""Extended air product details including content and branding."""
+type AirDetails {
+  contentType: String
+  isNDC: Boolean!
+  brandName: String
+  brandCode: String
+  fareFamily: String
+  validatingCarrier: String
+  interlineAgreements: [String!]
+  baggageAllowance: JSON
+  seatMap: JSON
+}
+
+"""A priced, bookable air offer combining segments, fare, fees, and taxes."""
+type AirOffer {
+  offerId: ID!
+  airDetails: AirDetails
+  segments: [AirSegment!]!
+  fare: Fare!
+  taxes: [Tax!]
+  fees: [Fee!]
+  totalAmount: Decimal!
+  currency: String!
+  seatsRemaining: Int
+  expiresAt: DateTime
+  refundable: Boolean
+  changeable: Boolean
+}
+
+"""A single flight leg within an air offer or booking."""
+type AirSegment {
+  segmentId: ID!
+  details: SegmentDetails!
+  connection: Connection
+  stopover: Stopover
+  availability: Availability
+  cabinClass: CabinClass!
+  bookingClass: String
+  fareBase: String
+  equipment: String
+  operatingCarrier: String
+  marketingCarrier: String
+  codeshare: Boolean
+}
+
+"""Flight-level details for a segment (times, airports, duration)."""
+type SegmentDetails {
+  origin: String!
+  destination: String!
+  departureDateTime: DateTime!
+  arrivalDateTime: DateTime!
+  flightNumber: String!
+  carrier: String!
+  duration: Int
+  distanceMiles: Int
+  onTimePerformance: Int
+  terminalOrigin: String
+  terminalDestination: String
+}
+
+"""Seat/class availability status on a segment."""
+type Availability {
+  classCode: String!
+  status: String!
+  seatsAvailable: Int
+  waitlist: Boolean
+}
+
+"""Connection details between two segments."""
+type Connection {
+  connectionTime: Int
+  connectionAirport: String!
+  isProtected: Boolean
+  minConnectionTime: Int
+}
+
+"""Planned stopover (overnight stay) at an intermediate point."""
+type Stopover {
+  airport: String!
+  durationHours: Int!
+  overnight: Boolean
+}
+
+# ─── Fare ────────────────────────────────────────────────────────────────────
+
+"""Base fare information for an air offer or booking."""
+type Fare {
+  fareId: ID!
+  details: FareDetails!
+  basis: [FareBasis!]
+  rules: FareRules
+  breakdown: [FareBreakdown!]
+  totalBaseFare: Decimal!
+  currency: String!
+  fareType: FareType!
+}
+
+"""Metadata describing the fare's source, validity, and attributes."""
+type FareDetails {
+  fareFamily: String
+  brandName: String
+  cabinClass: CabinClass!
+  refundable: Boolean!
+  changeable: Boolean!
+  validatingCarrier: String!
+  ticketingDeadline: DateTime
+  advancePurchaseDays: Int
+  minimumStay: String
+  maximumStay: String
+  blackoutDates: [Date!]
+}
+
+"""IATA or NDC fare basis code with applicability scope."""
+type FareBasis {
+  code: String!
+  carrier: String!
+  origin: String
+  destination: String
+  passengerType: PassengerTypeEnum
+  amount: Decimal
+  currency: String
+}
+
+"""Fare rules text or structured restrictions."""
+type FareRules {
+  cancellationPenalty: String
+  changePenalty: String
+  advancePurchase: String
+  minimumStay: String
+  maximumStay: String
+  combinability: String
+  baggageRules: String
+  fullRulesText: String
+}
+
+"""Per-passenger, per-segment fare breakdown component."""
+type FareBreakdown {
+  passengerType: PassengerTypeEnum!
+  quantity: Int!
+  baseFare: Decimal!
+  taxes: [Tax!]
+  fees: [Fee!]
+  totalPerPassenger: Decimal!
+  currency: String!
+}
+
+"""Government or carrier-imposed fee (e.g. fuel surcharge, booking fee)."""
+type Fee {
+  feeId: ID!
+  code: String!
+  description: String!
+  amount: Decimal!
+  currency: String!
+  refundable: Boolean
+  perPassenger: Boolean
+}
+
+"""Tax line item (e.g. departure tax, VAT, airport tax)."""
+type Tax {
+  taxId: ID!
+  code: String!
+  description: String!
+  amount: Decimal!
+  currency: String!
+  country: String
+  refundable: Boolean
+}
+
+# ─── Passenger ───────────────────────────────────────────────────────────────
+
+"""A traveller associated with a booking or offer."""
+type Passenger {
+  passengerId: ID!
+  type: PassengerType!
+  details: PassengerDetails!
+  contact: ContactDetails
+  documents: [Document!]
+  loyalty: [Loyalty!]
+  seatPreferences: JSON
+  mealPreferences: [String!]
+  specialRequests: [String!]
+}
+
+"""Passenger name and age classification."""
+type PassengerType {
+  code: PassengerTypeEnum!
+  label: String!
+  minAge: Int
+  maxAge: Int
+}
+
+"""Personal details for a traveller."""
+type PassengerDetails {
+  title: String
+  firstName: String!
+  middleName: String
+  lastName: String!
+  suffix: String
+  dateOfBirth: Date
+  gender: String
+  nationality: String
+  knownTravelerNumber: String
+  redressNumber: String
+}
+
+"""Contact information for a passenger or profile."""
+type ContactDetails {
+  email: String
+  phoneHome: String
+  phoneMobile: String
+  phoneWork: String
+  address: JSON
+  emergencyContact: JSON
+}
+
+"""A travel document (passport, national ID, visa) for a passenger."""
+type Document {
+  documentId: ID!
+  type: DocumentType!
+  details: DocumentDetails!
+}
+
+"""Details of a specific travel document."""
+type DocumentDetails {
+  number: String!
+  issuingCountry: String!
+  nationality: String!
+  expiryDate: Date!
+  issueDate: Date
+  firstName: String
+  lastName: String
+}
+
+# ─── Hotel / Stays ───────────────────────────────────────────────────────────
+
+"""Hotel stay component of a booking or search result."""
+type Hotel {
+  hotelId: ID!
+  property: HotelProperty!
+  details: HotelDetails
+  offers: [HotelOffer!]
+  selectedOffer: HotelOffer
+  checkIn: Date!
+  checkOut: Date!
+  guests: Int!
+  rooms: Int!
+  locator: String
+}
+
+"""Extended stay reservation details."""
+type HotelDetails {
+  confirmationNumber: String
+  supplierId: String
+  supplierName: String
+  chainCode: String
+  chainName: String
+  rating: Float
+  guestRating: Float
+  amenities: [String!]
+  policies: JSON
+  cancellationDeadline: DateTime
+  isPassiveSegment: Boolean
+}
+
+"""Physical hotel property information."""
+type HotelProperty {
+  propertyId: ID!
+  name: String!
+  brand: String
+  chain: String
+  address: JSON!
+  coordinates: JSON
+  phone: String
+  email: String
+  website: String
+  starRating: Float
+  photos: [String!]
+  description: String
+  nearbyAirport: String
+}
+
+"""A specific bookable room offer at a property."""
+type HotelOffer {
+  offerId: ID!
+  property: HotelProperty!
+  room: RoomDetails!
+  rate: Rate!
+  ratePlan: RatePlan!
+  totalAmount: Decimal!
+  currency: String!
+  taxes: [Tax!]
+  fees: [Fee!]
+  expiresAt: DateTime
+  refundable: Boolean
+  depositRequired: Boolean
+}
+
+"""Room-level details within a hotel offer."""
+type RoomDetails {
+  roomCode: String!
+  roomType: String!
+  bedType: RoomBedType
+  maxOccupancy: Int
+  floorLevel: String
+  view: String
+  squareFeet: Int
+  smokingAllowed: Boolean
+  description: String
+  amenities: [String!]
+}
+
+"""Nightly or total rate for a hotel offer."""
+type Rate {
+  rateId: ID!
+  amount: Decimal!
+  currency: String!
+  perNight: Decimal
+  nights: Int!
+  breakdown: [JSON!]
+  includesBreakfast: Boolean
+  includedMeals: [String!]
+}
+
+"""Rate plan (pricing category) governing a hotel offer."""
+type RatePlan {
+  ratePlanCode: String!
+  ratePlanName: String!
+  ratePlanType: String
+  isNegotiated: Boolean
+  corporateCode: String
+  promotionCode: String
+  cancellationPolicy: String
+  guaranteePolicy: String
+  depositPolicy: String
+}
+
+# ─── Car ─────────────────────────────────────────────────────────────────────
+
+"""Car rental component of a booking or search result."""
+type Car {
+  carId: ID!
+  supplier: CarSupplier!
+  details: CarDetails!
+  rates: CarRates!
+  pickupLocation: JSON!
+  dropoffLocation: JSON!
+  pickupDateTime: DateTime!
+  dropoffDateTime: DateTime!
+  locator: String
+}
+
+"""Car product details including vehicle class and equipment."""
+type CarDetails {
+  vehicleClass: String!
+  category: CarCategory!
+  type: String
+  transmission: String
+  airConditioning: Boolean
+  doors: Int
+  passengers: Int
+  bags: Int
+  fuelPolicy: String
+  mileagePolicy: String
+  equipment: [String!]
+  description: String
+}
+
+"""Car rental supplier information."""
+type CarSupplier {
+  supplierId: ID!
+  name: String!
+  code: String!
+  logoUrl: String
+  rating: Float
+  contactPhone: String
+  website: String
+}
+
+"""Pricing breakdown for a car rental."""
+type CarRates {
+  baseRate: Decimal!
+  currency: String!
+  rateType: String
+  taxes: [Tax!]
+  fees: [Fee!]
+  totalAmount: Decimal!
+  estimatedTotal: Decimal
+  deposit: Decimal
+  extraDayRate: Decimal
+}
+
+# ─── Rail ────────────────────────────────────────────────────────────────────
+
+"""Rail travel component of a booking or offer."""
+type Rail {
+  railId: ID!
+  journey: Journey!
+  details: RailDetails
+  segments: [RailSegment!]!
+  passengers: [Passenger!]
+  totalAmount: Decimal!
+  currency: String!
+  locator: String
+}
+
+"""Rail product metadata."""
+type RailDetails {
+  supplier: String!
+  supplierCode: String
+  fareClass: RailClass!
+  flexibility: String
+  seatReservationIncluded: Boolean
+  exchangeable: Boolean
+  refundable: Boolean
+  coachNumber: String
+  seatNumber: String
+  amenities: [String!]
+}
+
+"""A single train leg within a rail journey."""
+type RailSegment {
+  segmentId: ID!
+  origin: String!
+  destination: String!
+  departureDateTime: DateTime!
+  arrivalDateTime: DateTime!
+  trainNumber: String!
+  carrier: String!
+  railClass: RailClass!
+  duration: Int
+  platform: String
+  changeRequired: Boolean
+}
+
+"""Complete rail journey (one or more connected segments)."""
+type Journey {
+  journeyId: ID!
+  details: JourneyDetails!
+  segments: [RailSegment!]!
+  totalDuration: Int
+  changes: Int
+}
+
+"""Journey-level metadata."""
+type JourneyDetails {
+  origin: String!
+  destination: String!
+  departureDateTime: DateTime!
+  arrivalDateTime: DateTime!
+  totalDuration: Int!
+  changes: Int!
+  isDirectService: Boolean!
+  passengerCount: Int!
+}
+
+# ─── Ticket ──────────────────────────────────────────────────────────────────
+
+"""An issued electronic or paper ticket."""
+type Ticket {
+  ticketId: ID!
+  ticketNumber: String!
+  details: TicketDetails!
+  passenger: Passenger!
+  segments: [AirSegment!]
+  fare: Fare
+  issuedAt: DateTime!
+  issuedBy: String
+}
+
+"""Details of an issued ticket."""
+type TicketDetails {
+  status: String!
+  conjunctionTickets: [String!]
+  originalTicketNumber: String
+  exchangeIndicator: Boolean
+  refundable: Boolean
+  endorsements: String
+  fareCalculation: String
+  tourCode: String
+  formOfPayment: String
+  agentNumericCode: String
+  validatingCarrier: String!
+}
+
+# ─── Payment ─────────────────────────────────────────────────────────────────
+
+"""Payment record for a booking."""
+type Payment {
+  paymentId: ID!
+  method: PaymentMethod!
+  details: PaymentDetails!
+  card: PaymentCard
+  amount: Decimal!
+  currency: String!
+  status: String!
+  authorizedAt: DateTime
+  reversedAt: DateTime
+}
+
+"""Extended payment transaction details."""
+type PaymentDetails {
+  transactionId: String
+  authorizationCode: String
+  merchantId: String
+  acquirerId: String
+  is3DSecure: Boolean
+  threeDSVersion: String
+  avsResult: String
+  cvvResult: String
+  gatewayResponse: String
+  settlementDate: Date
+}
+
+"""Generic payment card (debit or credit)."""
+type PaymentCard {
+  cardType: String!
+  maskedNumber: String!
+  expiryMonth: Int!
+  expiryYear: Int!
+  cardholderName: String!
+  billingAddress: JSON
+  creditCard: CreditCard
+}
+
+"""Credit-card-specific attributes."""
+type CreditCard {
+  network: String!
+  issuer: String
+  bin: String
+  last4: String!
+  issuingCountry: String
+  commercialCard: Boolean
+  level: String
+}
+
+# ─── Search ──────────────────────────────────────────────────────────────────
+
+"""Aggregated search results from an availability or pricing query."""
+type SearchResult {
+  searchId: ID!
+  criteria: SearchCriteria!
+  airOffers: [AirOffer!]
+  hotelOffers: [HotelOffer!]
+  carOptions: [Car!]
+  railOffers: [Rail!]
+  totalResults: Int!
+  returnedResults: Int!
+  currency: String!
+  searchedAt: DateTime!
+}
+
+"""Input criteria for a multi-vertical search."""
+type SearchCriteria {
+  origin: String
+  destination: String
+  departureDate: Date
+  returnDate: Date
+  passengers: [PassengerType!]
+  cabinClass: CabinClass
+  maxResults: Int
+  currency: String
+  locale: String
+  searchType: String
+  filters: JSON
+  sorting: JSON
+}
+
+# ─── Content ─────────────────────────────────────────────────────────────────
+
+"""Rich content item (descriptions, images, policies) from a supplier."""
+type Content {
+  contentId: ID!
+  type: ContentType!
+  details: ContentDetails!
+  supplier: String
+  locale: String
+  tags: [String!]
+}
+
+"""Detail fields for a content item."""
+type ContentDetails {
+  title: String
+  body: String
+  url: String
+  mimeType: String
+  sizeBytes: Int
+  languageCode: String
+  publishedAt: DateTime
+  expiresAt: DateTime
+  attribution: String
+}
+
+# ─── Profile ─────────────────────────────────────────────────────────────────
+
+"""Stored traveller profile for preference and document management."""
+type Profile {
+  profileId: ID!
+  details: ProfileDetails!
+  contact: ContactDetails!
+  documents: [Document!]
+  loyalty: [Loyalty!]
+  preferences: JSON
+  createdAt: DateTime!
+  modifiedAt: DateTime!
+}
+
+"""Core personal data in a traveller profile."""
+type ProfileDetails {
+  title: String
+  firstName: String!
+  lastName: String!
+  dateOfBirth: Date
+  gender: String
+  nationality: String
+  language: String
+  agencyId: String
+  agentId: String
+}
+
+"""A loyalty programme membership for a traveller."""
+type Loyalty {
+  loyaltyId: ID!
+  programme: String!
+  memberNumber: String!
+  details: LoyaltyDetails!
+}
+
+"""Tier, balance, and benefit details for a loyalty membership."""
+type LoyaltyDetails {
+  tier: String
+  tierLabel: String
+  pointsBalance: Int
+  milesBalance: Int
+  expiryDate: Date
+  benefits: [String!]
+  statusMatchEligible: Boolean
+  carryoverPoints: Int
+}
+
+# ─── Agency ──────────────────────────────────────────────────────────────────
+
+"""A travel agency entity in the Travelport network."""
+type Agency {
+  agencyId: ID!
+  details: AgencyDetails!
+  queues: [Queue!]
+  agents: [Profile!]
+  apiKeys: [APIKey!]
+}
+
+"""Core agency registration and contact data."""
+type AgencyDetails {
+  name: String!
+  iataNumber: String
+  arcNumber: String
+  pcc: String
+  gdsAccess: [String!]
+  address: JSON!
+  phone: String!
+  email: String!
+  website: String
+  currency: String!
+  locale: String
+  timeZone: String
+  isActive: Boolean!
+}
+
+# ─── System / Queue ──────────────────────────────────────────────────────────
+
+"""A GDS agent work queue for booking action items."""
+type Queue {
+  queueId: ID!
+  queueNumber: String!
+  category: String
+  agencyId: String!
+  bookingCount: Int
+  priority: Int
+  label: String
+  description: String
+}
+
+"""A system notification dispatched to an agent or agency."""
+type Notification {
+  notificationId: ID!
+  channel: NotificationChannel!
+  recipient: String!
+  subject: String
+  message: String!
+  sentAt: DateTime
+  deliveredAt: DateTime
+  read: Boolean!
+  relatedBookingLocator: String
+  relatedProfileId: String
+}
+
+"""An API key credential for accessing Travelport TripServices."""
+type APIKey {
+  keyId: ID!
+  name: String!
+  maskedValue: String!
+  agencyId: String!
+  scopes: [String!]!
+  createdAt: DateTime!
+  expiresAt: DateTime
+  lastUsedAt: DateTime
+  isActive: Boolean!
+}
+
+"""An OAuth 2.0 access token for a Travelport API session."""
+type Token {
+  tokenId: ID!
+  type: TokenType!
+  value: String!
+  scope: String
+  issuedAt: DateTime!
+  expiresAt: DateTime!
+  agencyId: String!
+  agentId: String
+}
+
+"""A stateful booking workbench session (multi-step GDS booking flow)."""
+type Session {
+  sessionId: ID!
+  token: Token!
+  agencyId: String!
+  agentId: String
+  pcc: String
+  gds: String
+  createdAt: DateTime!
+  expiresAt: DateTime!
+  currentBooking: Booking
+  pendingOffers: [AirOffer!]
+  context: JSON
+}
+
+# ─── Root Operations ─────────────────────────────────────────────────────────
+
+type Query {
+  """Search for available air offers."""
+  searchAir(criteria: SearchCriteria!): SearchResult!
+
+  """Retrieve a specific priced air offer by ID."""
+  getAirOffer(offerId: ID!): AirOffer
+
+  """Search for hotel availability."""
+  searchHotel(criteria: SearchCriteria!): SearchResult!
+
+  """Retrieve a specific hotel offer by ID."""
+  getHotelOffer(offerId: ID!): HotelOffer
+
+  """Search for car rental options."""
+  searchCar(criteria: SearchCriteria!): SearchResult!
+
+  """Search for rail journey options."""
+  searchRail(criteria: SearchCriteria!): SearchResult!
+
+  """Retrieve a booking by PNR locator."""
+  getBooking(locator: String!): Booking
+
+  """List all bookings for an agency or agent."""
+  listBookings(agencyId: ID!, agentId: ID, status: BookingStatusEnum): [Booking!]!
+
+  """Retrieve ticket details by ticket number."""
+  getTicket(ticketNumber: String!): Ticket
+
+  """Retrieve a traveller profile."""
+  getProfile(profileId: ID!): Profile
+
+  """Search traveller profiles by name or email."""
+  searchProfiles(agencyId: ID!, query: String!): [Profile!]!
+
+  """Retrieve agency details."""
+  getAgency(agencyId: ID!): Agency
+
+  """List GDS work queues for an agency."""
+  listQueues(agencyId: ID!): [Queue!]!
+
+  """Retrieve content (descriptions, images) for a supplier or property."""
+  getContent(contentId: ID!): Content
+
+  """Get an active session workbench."""
+  getSession(sessionId: ID!): Session
+
+  """List API keys for an agency."""
+  listAPIKeys(agencyId: ID!): [APIKey!]!
+}
+
+type Mutation {
+  """Authenticate and obtain an access token."""
+  authenticate(clientId: String!, clientSecret: String!): Token!
+
+  """Create a new booking (PNR) from selected offers and passengers."""
+  createBooking(offerId: ID!, passengers: [JSON!]!, payment: JSON): Booking!
+
+  """Cancel a booking by PNR locator."""
+  cancelBooking(locator: String!, reason: String): BookingStatus!
+
+  """Issue tickets for a confirmed booking."""
+  ticketBooking(locator: String!, formOfPayment: JSON): [Ticket!]!
+
+  """Exchange a ticket for an alternative itinerary."""
+  exchangeTicket(ticketNumber: String!, newOfferId: ID!, payment: JSON): Ticket!
+
+  """Authorize a payment card transaction."""
+  authorizePayment(bookingLocator: String!, card: JSON!, amount: Decimal!, currency: String!): Payment!
+
+  """Reverse a previously authorized payment."""
+  reversePayment(paymentId: ID!, reason: String): Payment!
+
+  """Create a hotel reservation."""
+  reserveHotel(offerId: ID!, passengers: [JSON!]!, payment: JSON): Hotel!
+
+  """Cancel a hotel reservation."""
+  cancelHotelReservation(locator: String!, reason: String): BookingStatus!
+
+  """Create a car rental reservation."""
+  reserveCar(carId: ID!, passengers: [JSON!]!, payment: JSON): Car!
+
+  """Create a rail booking."""
+  bookRail(railOfferId: ID!, passengers: [JSON!]!, payment: JSON): Rail!
+
+  """Create a new traveller profile."""
+  createProfile(agencyId: ID!, input: JSON!): Profile!
+
+  """Update an existing traveller profile."""
+  updateProfile(profileId: ID!, input: JSON!): Profile!
+
+  """Delete a traveller profile."""
+  deleteProfile(profileId: ID!): Boolean!
+
+  """Add a loyalty programme membership to a profile."""
+  addLoyalty(profileId: ID!, programme: String!, memberNumber: String!): Loyalty!
+
+  """Open a new workbench session."""
+  createSession(token: String!, pcc: String, gds: String): Session!
+
+  """Close and expire a workbench session."""
+  closeSession(sessionId: ID!): Boolean!
+
+  """Place a booking on a GDS queue."""
+  queueBooking(locator: String!, queueNumber: String!, category: String): Queue!
+
+  """Create a new API key for an agency."""
+  createAPIKey(agencyId: ID!, name: String!, scopes: [String!]!): APIKey!
+
+  """Revoke an existing API key."""
+  revokeAPIKey(keyId: ID!): Boolean!
+}
