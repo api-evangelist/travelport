@@ -1,0 +1,497 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Air availability search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/search/airAvailability"
+          },
+          "docs": "Air availability search"
+        },
+        {
+          "info": {
+            "name": "Search catalog product offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/catalog/search/catalogproductofferings"
+          },
+          "docs": "Search catalog product offerings"
+        },
+        {
+          "info": {
+            "name": "Build next page of catalog offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/catalog/search/catalogproductofferings/buildnext"
+          },
+          "docs": "Build next page of catalog offerings"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Pricing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Build priced offer from catalog product offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/price/offers/buildfromcatalogproductofferings"
+          },
+          "docs": "Build priced offer from catalog product offerings"
+        },
+        {
+          "info": {
+            "name": "Build priced offer from products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/price/offers/buildfromproducts"
+          },
+          "docs": "Build priced offer from products"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Fare Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fare rules from an offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/farerule/farerules/fromoffer"
+          },
+          "docs": "Fare rules from an offer"
+        },
+        {
+          "info": {
+            "name": "Fare rules from a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/farerule/farerules/fromreservation"
+          },
+          "docs": "Fare rules from a reservation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Seats and Ancillaries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search seat availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/search/seat/catalogofferingsancillaries/seatavailabilities"
+          },
+          "docs": "Search seat availability"
+        },
+        {
+          "info": {
+            "name": "Shop for ancillaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/ancillaryshop/catalogofferingsancillaries"
+          },
+          "docs": "Shop for ancillaries"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "EMDs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an EMD by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/emds/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an EMD by identifier"
+        },
+        {
+          "info": {
+            "name": "Update an EMD by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.travelport.net/11/air/emds/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update an EMD by identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve EMDs by locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/emds/getbylocator"
+          },
+          "docs": "Retrieve EMDs by locator"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Workbench",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a reservation workbench session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench"
+          },
+          "docs": "Create a reservation workbench session"
+        },
+        {
+          "info": {
+            "name": "Build a workbench from an existing locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench/buildfromlocator"
+          },
+          "docs": "Build a workbench from an existing locator"
+        },
+        {
+          "info": {
+            "name": "Retrieve a workbench by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a workbench by identifier"
+        },
+        {
+          "info": {
+            "name": "Delete a workbench by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a workbench by identifier"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Build a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/build"
+          },
+          "docs": "Build a reservation"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Reservations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a reservation by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a reservation by identifier"
+        },
+        {
+          "info": {
+            "name": "Operate on a reservation by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Operate on a reservation by identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve reservation by locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/getbylocator"
+          },
+          "docs": "Retrieve reservation by locator"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Modifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Divide a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/divide"
+          },
+          "docs": "Divide a reservation"
+        },
+        {
+          "info": {
+            "name": "Modify a reservation by identifier (NDC)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/modify/reservations/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify a reservation by identifier (NDC)"
+        },
+        {
+          "info": {
+            "name": "NDC change catalog offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/change/catalogofferingsairchange"
+          },
+          "docs": "NDC change catalog offerings"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Ticketing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve tickets by locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/ticket/tickets/getbylocator"
+          },
+          "docs": "Retrieve tickets by locator"
+        },
+        {
+          "info": {
+            "name": "Retrieve a ticket by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/ticket/tickets/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a ticket by identifier"
+        },
+        {
+          "info": {
+            "name": "Update ticket status by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.travelport.net/11/air/ticket/tickets/updatestatus/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update ticket status by identifier"
+        },
+        {
+          "info": {
+            "name": "Void documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/documents/void"
+          },
+          "docs": "Void documents"
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Queues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add to queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/queue/queue"
+          },
+          "docs": "Add to queue"
+        },
+        {
+          "info": {
+            "name": "Remove from queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/queue/queue/remove"
+          },
+          "docs": "Remove from queue"
+        },
+        {
+          "info": {
+            "name": "List queue items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/queue/queue/list"
+          },
+          "docs": "List queue items"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
