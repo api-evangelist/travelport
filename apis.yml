@@ -2,7 +2,7 @@ aid: travelport
 url: https://raw.githubusercontent.com/api-evangelist/travelport/refs/heads/main/apis.yml
 name: Travelport
 type: Index
-image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
 tags:
 - Travel
 - Travel Technology
@@ -25,7 +25,7 @@ apis:
     search, price, book, ticket, cancel, and exchange. Covers both GDS and NDC content
     from 400+ airlines and low-cost carriers, with workbench-based or single-payload
     booking flows.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.travelport.com/apis/flights
   baseURL: https://api.travelport.net/11
   tags:
@@ -58,7 +58,7 @@ apis:
     management, and modification across 180+ countries. Supports searches by coordinates,
     address, airport/city code, or property ID, plus passive-segment bookings for
     external suppliers.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.travelport.com/apis/stays/12.1.2
   baseURL: https://api.travelport.net/11
   tags:
@@ -82,7 +82,7 @@ apis:
   description: RESTful JSON payments API enabling online travel agencies to perform
     credit card authorizations, address validations, 3D Secure transactions, and reversals
     against designated merchant vendors. Current version 11.33.0.
-  image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
+  image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.travelport.com/apis/pay
   baseURL: https://api.travelport.net/11/payment
   tags:
