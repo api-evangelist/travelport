@@ -125,7 +125,7 @@ common:
   url: https://investors.travelport.com/
 - type: Careers
   url: https://www.travelport.com/careers
-- type: LLMsTxt
+- type: LlmsText
   url: https://developer.travelport.com/llms.txt
 maintainers:
 - FN: API Evangelist
