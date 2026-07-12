@@ -1,0 +1,14 @@
+generated: '2026-07-11'
+method: derived
+source: openapi/travelport-openapi.yml
+summary:
+  types:
+  - http
+schemes:
+- name: BearerAuth
+  type: http
+  scheme: bearer
+  bearerFormat: JWT
+  description: Travelport-issued JWT bearer token in the Authorization header.
+  sources:
+  - openapi/travelport-openapi.yml

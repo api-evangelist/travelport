@@ -101,6 +101,10 @@ apis:
   - FN: Travelport Developer Support
     url: https://developer.travelport.com/support
 common:
+- type: DomainSecurity
+  url: security/travelport-domain-security.yml
+- type: Authentication
+  url: authentication/travelport-authentication.yml
 - type: GitHubOrganization
   url: https://github.com/travelport
 - type: LinkedIn
