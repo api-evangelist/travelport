@@ -101,6 +101,8 @@ apis:
   - FN: Travelport Developer Support
     url: https://developer.travelport.com/support
 common:
+- type: AgenticAccess
+  url: agentic-access/travelport-agentic-access.yml
 - type: DomainSecurity
   url: security/travelport-domain-security.yml
 - type: Authentication
