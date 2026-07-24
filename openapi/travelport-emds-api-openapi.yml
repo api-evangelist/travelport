@@ -1,0 +1,66 @@
+openapi: 3.1.0
+info:
+  title: Travelport TripServices Flights Booking EMDs API
+  version: '11'
+  description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
+
+    ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
+
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.
+
+    '
+  contact:
+    name: Travelport Developer Support
+    url: https://developer.travelport.com/support
+servers:
+- url: https://api.travelport.net/11
+  description: Production
+- url: https://api.pp.travelport.net/11
+  description: Sandbox (Pre-Production)
+security:
+- BearerAuth: []
+tags:
+- name: EMDs
+paths:
+  /air/emds/{Identifier}:
+    get:
+      tags:
+      - EMDs
+      summary: Retrieve an EMD by identifier
+      parameters:
+      - in: path
+        name: Identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: EMD
+    put:
+      tags:
+      - EMDs
+      summary: Update an EMD by identifier
+      parameters:
+      - in: path
+        name: Identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Updated EMD
+  /air/emds/getbylocator:
+    get:
+      tags:
+      - EMDs
+      summary: Retrieve EMDs by locator
+      responses:
+        '200':
+          description: EMDs
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Travelport-issued JWT bearer token in the Authorization header.

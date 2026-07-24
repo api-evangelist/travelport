@@ -1,0 +1,61 @@
+openapi: 3.1.0
+info:
+  title: Travelport TripServices Flights Booking Modifications API
+  version: '11'
+  description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
+
+    ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
+
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.
+
+    '
+  contact:
+    name: Travelport Developer Support
+    url: https://developer.travelport.com/support
+servers:
+- url: https://api.travelport.net/11
+  description: Production
+- url: https://api.pp.travelport.net/11
+  description: Sandbox (Pre-Production)
+security:
+- BearerAuth: []
+tags:
+- name: Modifications
+paths:
+  /air/book/reservation/reservations/divide:
+    post:
+      tags:
+      - Modifications
+      summary: Divide a reservation
+      responses:
+        '200':
+          description: Divided reservation
+  /air/modify/reservations/{Identifier}:
+    post:
+      tags:
+      - Modifications
+      summary: Modify a reservation by identifier (NDC)
+      parameters:
+      - in: path
+        name: Identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Modified reservation
+  /air/change/catalogofferingsairchange:
+    post:
+      tags:
+      - Modifications
+      summary: NDC change catalog offerings
+      responses:
+        '200':
+          description: Change offerings
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Travelport-issued JWT bearer token in the Authorization header.

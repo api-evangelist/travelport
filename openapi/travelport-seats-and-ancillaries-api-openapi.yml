@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: Travelport TripServices Flights Booking Seats and Ancillaries API
+  version: '11'
+  description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
+
+    ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
+
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.
+
+    '
+  contact:
+    name: Travelport Developer Support
+    url: https://developer.travelport.com/support
+servers:
+- url: https://api.travelport.net/11
+  description: Production
+- url: https://api.pp.travelport.net/11
+  description: Sandbox (Pre-Production)
+security:
+- BearerAuth: []
+tags:
+- name: Seats and Ancillaries
+paths:
+  /air/search/seat/catalogofferingsancillaries/seatavailabilities:
+    post:
+      tags:
+      - Seats and Ancillaries
+      summary: Search seat availability
+      responses:
+        '200':
+          description: Seat availability
+  /air/ancillaryshop/catalogofferingsancillaries:
+    post:
+      tags:
+      - Seats and Ancillaries
+      summary: Shop for ancillaries
+      responses:
+        '200':
+          description: Ancillary offerings
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Travelport-issued JWT bearer token in the Authorization header.

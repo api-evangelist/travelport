@@ -1,0 +1,47 @@
+openapi: 3.1.0
+info:
+  title: Travelport TripServices Flights Booking Fare Rules API
+  version: '11'
+  description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
+
+    ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
+
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.
+
+    '
+  contact:
+    name: Travelport Developer Support
+    url: https://developer.travelport.com/support
+servers:
+- url: https://api.travelport.net/11
+  description: Production
+- url: https://api.pp.travelport.net/11
+  description: Sandbox (Pre-Production)
+security:
+- BearerAuth: []
+tags:
+- name: Fare Rules
+paths:
+  /air/farerule/farerules/fromoffer:
+    get:
+      tags:
+      - Fare Rules
+      summary: Fare rules from an offer
+      responses:
+        '200':
+          description: Fare rules
+  /air/farerule/farerules/fromreservation:
+    get:
+      tags:
+      - Fare Rules
+      summary: Fare rules from a reservation
+      responses:
+        '200':
+          description: Fare rules
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Travelport-issued JWT bearer token in the Authorization header.

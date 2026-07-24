@@ -1,0 +1,75 @@
+openapi: 3.1.0
+info:
+  title: Travelport TripServices Flights Booking Ticketing API
+  version: '11'
+  description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
+
+    ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
+
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.
+
+    '
+  contact:
+    name: Travelport Developer Support
+    url: https://developer.travelport.com/support
+servers:
+- url: https://api.travelport.net/11
+  description: Production
+- url: https://api.pp.travelport.net/11
+  description: Sandbox (Pre-Production)
+security:
+- BearerAuth: []
+tags:
+- name: Ticketing
+paths:
+  /air/ticket/tickets/getbylocator:
+    post:
+      tags:
+      - Ticketing
+      summary: Retrieve tickets by locator
+      responses:
+        '200':
+          description: Tickets
+  /air/ticket/tickets/{Identifier}:
+    get:
+      tags:
+      - Ticketing
+      summary: Retrieve a ticket by identifier
+      parameters:
+      - in: path
+        name: Identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Ticket
+  /air/ticket/tickets/updatestatus/{Identifier}:
+    put:
+      tags:
+      - Ticketing
+      summary: Update ticket status by identifier
+      parameters:
+      - in: path
+        name: Identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Updated
+  /documents/void:
+    post:
+      tags:
+      - Ticketing
+      summary: Void documents
+      responses:
+        '200':
+          description: Voided
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Travelport-issued JWT bearer token in the Authorization header.

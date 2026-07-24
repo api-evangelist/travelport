@@ -1,0 +1,74 @@
+openapi: 3.1.0
+info:
+  title: Travelport TripServices Flights Booking Workbench API
+  version: '11'
+  description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
+
+    ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
+
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.
+
+    '
+  contact:
+    name: Travelport Developer Support
+    url: https://developer.travelport.com/support
+servers:
+- url: https://api.travelport.net/11
+  description: Production
+- url: https://api.pp.travelport.net/11
+  description: Sandbox (Pre-Production)
+security:
+- BearerAuth: []
+tags:
+- name: Workbench
+paths:
+  /air/book/session/reservationworkbench:
+    post:
+      tags:
+      - Workbench
+      summary: Create a reservation workbench session
+      responses:
+        '200':
+          description: Workbench created
+  /air/book/session/reservationworkbench/buildfromlocator:
+    post:
+      tags:
+      - Workbench
+      summary: Build a workbench from an existing locator
+      responses:
+        '200':
+          description: Workbench
+  /air/book/session/reservationworkbench/{Identifier}:
+    get:
+      tags:
+      - Workbench
+      summary: Retrieve a workbench by identifier
+      parameters:
+      - in: path
+        name: Identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '200':
+          description: Workbench
+    delete:
+      tags:
+      - Workbench
+      summary: Delete a workbench by identifier
+      parameters:
+      - in: path
+        name: Identifier
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: Deleted
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Travelport-issued JWT bearer token in the Authorization header.
