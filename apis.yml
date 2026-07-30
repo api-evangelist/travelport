@@ -2,7 +2,19 @@ aid: travelport
 url: https://raw.githubusercontent.com/api-evangelist/travelport/refs/heads/main/apis.yml
 name: Travelport
 type: Index
-image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
+image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/icons/travelport.png
 tags:
 - Travel
 - Travel Technology
@@ -21,10 +33,10 @@ specificationVersion: '0.19'
 apis:
 - aid: travelport:trip-services-flights
   name: Travelport TripServices Flights API
-  description: RESTful JSON API providing end-to-end air travel workflows including
-    search, price, book, ticket, cancel, and exchange. Covers both GDS and NDC content
-    from 400+ airlines and low-cost carriers, with workbench-based or single-payload
-    booking flows.
+  description: >-
+    RESTful JSON API providing end-to-end air travel workflows including search, price, book, ticket,
+    cancel, and exchange. Covers both GDS and NDC content from 400+ airlines and low-cost carriers, with
+    workbench-based or single-payload booking flows.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.travelport.com/apis/flights
   baseURL: https://api.travelport.net/11
@@ -54,10 +66,10 @@ apis:
     url: https://developer.travelport.com/support
 - aid: travelport:trip-services-stays
   name: Travelport TripServices Stays API
-  description: RESTful JSON API for hotel search, availability, rules, reservation
-    management, and modification across 180+ countries. Supports searches by coordinates,
-    address, airport/city code, or property ID, plus passive-segment bookings for
-    external suppliers.
+  description: >-
+    RESTful JSON API for hotel search, availability, rules, reservation management, and modification across
+    180+ countries. Supports searches by coordinates, address, airport/city code, or property ID, plus
+    passive-segment bookings for external suppliers.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.travelport.com/apis/stays/12.1.2
   baseURL: https://api.travelport.net/11
@@ -79,9 +91,10 @@ apis:
     url: https://developer.travelport.com/support
 - aid: travelport:trip-services-pay
   name: Travelport TripServices Pay API
-  description: RESTful JSON payments API enabling online travel agencies to perform
-    credit card authorizations, address validations, 3D Secure transactions, and reversals
-    against designated merchant vendors. Current version 11.33.0.
+  description: >-
+    RESTful JSON payments API enabling online travel agencies to perform credit card authorizations, address
+    validations, 3D Secure transactions, and reversals against designated merchant vendors. Current version
+    11.33.0.
   image: https://kinlane-images.s3.amazonaws.com/shared/apis-json/apis-json-logo.jpg
   humanURL: https://developer.travelport.com/apis/pay
   baseURL: https://api.travelport.net/11/payment
@@ -100,6 +113,117 @@ apis:
   contact:
   - FN: Travelport Developer Support
     url: https://developer.travelport.com/support
+- aid: travelport:travelport-booking-api
+  name: Travelport Booking API
+  description: The Booking API from Travelport — 1 operation(s) for booking.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Booking
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-booking-api-openapi.yml
+- aid: travelport:travelport-emds-api
+  name: Travelport EMDs API
+  description: The EMDs API from Travelport — 2 operation(s) for emds.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - EMDs
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-emds-api-openapi.yml
+- aid: travelport:travelport-fare-rules-api
+  name: Travelport Fare Rules API
+  description: The Fare Rules API from Travelport — 2 operation(s) for fare rules.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Fare Rules
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-fare-rules-api-openapi.yml
+- aid: travelport:travelport-modifications-api
+  name: Travelport Modifications API
+  description: The Modifications API from Travelport — 3 operation(s) for modifications.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Modifications
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-modifications-api-openapi.yml
+- aid: travelport:travelport-pricing-api
+  name: Travelport Pricing API
+  description: The Pricing API from Travelport — 2 operation(s) for pricing.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Pricing
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-pricing-api-openapi.yml
+- aid: travelport:travelport-queues-api
+  name: Travelport Queues API
+  description: The Queues API from Travelport — 3 operation(s) for queues.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Queues
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-queues-api-openapi.yml
+- aid: travelport:travelport-reservations-api
+  name: Travelport Reservations API
+  description: The Reservations API from Travelport — 2 operation(s) for reservations.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Reservations
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-reservations-api-openapi.yml
+- aid: travelport:travelport-search-api
+  name: Travelport Search API
+  description: The Search API from Travelport — 3 operation(s) for search.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Search
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-search-api-openapi.yml
+- aid: travelport:travelport-seats-and-ancillaries-api
+  name: Travelport Seats and Ancillaries API
+  description: >-
+    The Seats and Ancillaries API from Travelport — 2 operation(s) for seats and ancillaries.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Seats and Ancillaries
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-seats-and-ancillaries-api-openapi.yml
+- aid: travelport:travelport-ticketing-api
+  name: Travelport Ticketing API
+  description: The Ticketing API from Travelport — 4 operation(s) for ticketing.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Ticketing
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-ticketing-api-openapi.yml
+- aid: travelport:travelport-workbench-api
+  name: Travelport Workbench API
+  description: The Workbench API from Travelport — 3 operation(s) for workbench.
+  humanURL: https://developer.travelport.com/apis/flights
+  baseURL: https://api.travelport.net/11
+  tags:
+  - Workbench
+  properties:
+  - type: OpenAPI
+    url: openapi/travelport-workbench-api-openapi.yml
 common:
 - type: AgenticAccess
   url: agentic-access/travelport-agentic-access.yml
