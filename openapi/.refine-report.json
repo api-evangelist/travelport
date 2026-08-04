@@ -1,0 +1,34 @@
+{
+  "provider": "travelport",
+  "sources": [
+    "travelport-booking-api-openapi.yml",
+    "travelport-emds-api-openapi.yml",
+    "travelport-fare-rules-api-openapi.yml",
+    "travelport-modifications-api-openapi.yml",
+    "travelport-pricing-api-openapi.yml",
+    "travelport-queues-api-openapi.yml",
+    "travelport-reservations-api-openapi.yml",
+    "travelport-search-api-openapi.yml",
+    "travelport-seats-and-ancillaries-api-openapi.yml",
+    "travelport-ticketing-api-openapi.yml",
+    "travelport-workbench-api-openapi.yml"
+  ],
+  "outputs": [
+    "travelport-booking-api-openapi.yml",
+    "travelport-emds-api-openapi.yml",
+    "travelport-fare-rules-api-openapi.yml",
+    "travelport-modifications-api-openapi.yml",
+    "travelport-pricing-api-openapi.yml",
+    "travelport-queues-api-openapi.yml",
+    "travelport-reservations-api-openapi.yml",
+    "travelport-search-api-openapi.yml",
+    "travelport-seats-and-ancillaries-api-openapi.yml",
+    "travelport-ticketing-api-openapi.yml",
+    "travelport-workbench-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}

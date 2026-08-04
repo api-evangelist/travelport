@@ -1,0 +1,299 @@
+openapi: 3.1.0
+info:
+  title: Travelport TripServices Flights API
+  version: "11"
+  description: |
+    RESTful JSON API for end-to-end air travel workflows (search, price, book,
+    ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.
+  contact:
+    name: Travelport Developer Support
+    url: https://developer.travelport.com/support
+servers:
+  - url: https://api.travelport.net/11
+    description: Production
+  - url: https://api.pp.travelport.net/11
+    description: Sandbox (Pre-Production)
+security:
+  - BearerAuth: []
+tags:
+  - name: Search
+  - name: Pricing
+  - name: Fare Rules
+  - name: Seats and Ancillaries
+  - name: EMDs
+  - name: Workbench
+  - name: Booking
+  - name: Ticketing
+  - name: Reservations
+  - name: Modifications
+  - name: Queues
+paths:
+  /air/search/airAvailability:
+    post:
+      tags: [Search]
+      summary: Air availability search
+      responses:
+        "200":
+          description: Availability response
+  /air/catalog/search/catalogproductofferings:
+    post:
+      tags: [Search]
+      summary: Search catalog product offerings
+      responses:
+        "200":
+          description: Catalog offerings
+  /air/catalog/search/catalogproductofferings/buildnext:
+    post:
+      tags: [Search]
+      summary: Build next page of catalog offerings
+      responses:
+        "200":
+          description: Next page
+  /air/price/offers/buildfromcatalogproductofferings:
+    post:
+      tags: [Pricing]
+      summary: Build priced offer from catalog product offerings
+      responses:
+        "200":
+          description: Priced offer
+  /air/price/offers/buildfromproducts:
+    post:
+      tags: [Pricing]
+      summary: Build priced offer from products
+      responses:
+        "200":
+          description: Priced offer
+  /air/farerule/farerules/fromoffer:
+    get:
+      tags: [Fare Rules]
+      summary: Fare rules from an offer
+      responses:
+        "200":
+          description: Fare rules
+  /air/farerule/farerules/fromreservation:
+    get:
+      tags: [Fare Rules]
+      summary: Fare rules from a reservation
+      responses:
+        "200":
+          description: Fare rules
+  /air/search/seat/catalogofferingsancillaries/seatavailabilities:
+    post:
+      tags: [Seats and Ancillaries]
+      summary: Search seat availability
+      responses:
+        "200":
+          description: Seat availability
+  /air/ancillaryshop/catalogofferingsancillaries:
+    post:
+      tags: [Seats and Ancillaries]
+      summary: Shop for ancillaries
+      responses:
+        "200":
+          description: Ancillary offerings
+  /air/emds/{Identifier}:
+    get:
+      tags: [EMDs]
+      summary: Retrieve an EMD by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: EMD
+    put:
+      tags: [EMDs]
+      summary: Update an EMD by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Updated EMD
+  /air/emds/getbylocator:
+    get:
+      tags: [EMDs]
+      summary: Retrieve EMDs by locator
+      responses:
+        "200":
+          description: EMDs
+  /air/book/session/reservationworkbench:
+    post:
+      tags: [Workbench]
+      summary: Create a reservation workbench session
+      responses:
+        "200":
+          description: Workbench created
+  /air/book/session/reservationworkbench/buildfromlocator:
+    post:
+      tags: [Workbench]
+      summary: Build a workbench from an existing locator
+      responses:
+        "200":
+          description: Workbench
+  /air/book/session/reservationworkbench/{Identifier}:
+    get:
+      tags: [Workbench]
+      summary: Retrieve a workbench by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Workbench
+    delete:
+      tags: [Workbench]
+      summary: Delete a workbench by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "204":
+          description: Deleted
+  /air/book/reservation/reservations/build:
+    post:
+      tags: [Booking]
+      summary: Build a reservation
+      responses:
+        "200":
+          description: Reservation
+  /air/book/reservation/reservations/{Identifier}:
+    get:
+      tags: [Reservations]
+      summary: Retrieve a reservation by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Reservation
+    post:
+      tags: [Reservations]
+      summary: Operate on a reservation by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Result
+  /air/book/reservation/reservations/getbylocator:
+    get:
+      tags: [Reservations]
+      summary: Retrieve reservation by locator
+      responses:
+        "200":
+          description: Reservation
+  /air/book/reservation/reservations/divide:
+    post:
+      tags: [Modifications]
+      summary: Divide a reservation
+      responses:
+        "200":
+          description: Divided reservation
+  /air/modify/reservations/{Identifier}:
+    post:
+      tags: [Modifications]
+      summary: Modify a reservation by identifier (NDC)
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Modified reservation
+  /air/change/catalogofferingsairchange:
+    post:
+      tags: [Modifications]
+      summary: NDC change catalog offerings
+      responses:
+        "200":
+          description: Change offerings
+  /air/ticket/tickets/getbylocator:
+    post:
+      tags: [Ticketing]
+      summary: Retrieve tickets by locator
+      responses:
+        "200":
+          description: Tickets
+  /air/ticket/tickets/{Identifier}:
+    get:
+      tags: [Ticketing]
+      summary: Retrieve a ticket by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Ticket
+  /air/ticket/tickets/updatestatus/{Identifier}:
+    put:
+      tags: [Ticketing]
+      summary: Update ticket status by identifier
+      parameters:
+        - in: path
+          name: Identifier
+          required: true
+          schema:
+            type: string
+      responses:
+        "200":
+          description: Updated
+  /documents/void:
+    post:
+      tags: [Ticketing]
+      summary: Void documents
+      responses:
+        "200":
+          description: Voided
+  /air/queue/queue:
+    post:
+      tags: [Queues]
+      summary: Add to queue
+      responses:
+        "200":
+          description: Queued
+  /air/queue/queue/remove:
+    post:
+      tags: [Queues]
+      summary: Remove from queue
+      responses:
+        "200":
+          description: Removed
+  /air/queue/queue/list:
+    post:
+      tags: [Queues]
+      summary: List queue items
+      responses:
+        "200":
+          description: Queue listing
+components:
+  securitySchemes:
+    BearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+      description: Travelport-issued JWT bearer token in the Authorization header.
