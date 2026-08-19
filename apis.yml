@@ -29,7 +29,7 @@ description: A global travel technology company connecting travel providers with
   hotel, and car rental bookings through its Galileo, Apollo, and Worldspan systems.
 created: '2026-05-05'
 modified: '2026-05-16'
-specificationVersion: '0.19'
+specificationVersion: '0.23'
 apis:
 - aid: travelport:trip-services-flights
   name: Travelport TripServices Flights API
