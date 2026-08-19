@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Ticketing API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Ticketing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve tickets by locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/ticket/tickets/getbylocator"
+          },
+          "docs": "Retrieve tickets by locator"
+        },
+        {
+          "info": {
+            "name": "Retrieve a ticket by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/ticket/tickets/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a ticket by identifier"
+        },
+        {
+          "info": {
+            "name": "Update ticket status by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.travelport.net/11/air/ticket/tickets/updatestatus/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update ticket status by identifier"
+        },
+        {
+          "info": {
+            "name": "Void documents",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/documents/void"
+          },
+          "docs": "Void documents"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

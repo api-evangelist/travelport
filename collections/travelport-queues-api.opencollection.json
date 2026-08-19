@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Queues API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Queues",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Add to queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/queue/queue"
+          },
+          "docs": "Add to queue"
+        },
+        {
+          "info": {
+            "name": "Remove from queue",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/queue/queue/remove"
+          },
+          "docs": "Remove from queue"
+        },
+        {
+          "info": {
+            "name": "List queue items",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/queue/queue/list"
+          },
+          "docs": "List queue items"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

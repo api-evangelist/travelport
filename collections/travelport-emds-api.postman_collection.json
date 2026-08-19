@@ -1,0 +1,280 @@
+{
+  "item": [
+    {
+      "id": "bd1872a4-3721-4c4a-a330-be0c9dc4766f",
+      "name": "EMDs",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "d50695d8-4f52-4fb3-9343-3150d15cae64",
+          "name": "Retrieve an EMD by identifier",
+          "request": {
+            "name": "Retrieve an EMD by identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "emds",
+                ":Identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "Identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "58213099-cb74-4a07-8c9d-c10adb383bed",
+              "name": "EMD",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "emds",
+                    ":Identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "Identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c6e4671b-0d42-49d7-a0f2-19e546b8589c",
+          "name": "Update an EMD by identifier",
+          "request": {
+            "name": "Update an EMD by identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "emds",
+                ":Identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "Identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "PUT",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "7a203642-4b50-4cde-86fc-ab5be0ccab92",
+              "name": "Updated EMD",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "emds",
+                    ":Identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "Identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "PUT",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "8e1fe3e4-216c-4b10-b956-8854525f4614",
+          "name": "Retrieve EMDs by locator",
+          "request": {
+            "name": "Retrieve EMDs by locator",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "emds",
+                "getbylocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "eb53fd80-d4ef-4236-b7d0-89edd666d7c6",
+              "name": "EMDs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "emds",
+                    "getbylocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.travelport.net/11",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "6a4ec666-173d-4a86-be92-86c0976a78ef",
+    "name": "Travelport TripServices Flights Booking EMDs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful JSON API for end-to-end air travel workflows (search, price, book,\nticket, cancel, exchange) over GDS and NDC content. Endpoints derived from\nthe Travelport developer portal at https://developer.travelport.com/apis/flights.\n\n\nContact Support:\n Name: Travelport Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

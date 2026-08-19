@@ -1,0 +1,363 @@
+{
+  "item": [
+    {
+      "id": "a3c533a1-7290-4bd0-88cb-e5ccae88d8d3",
+      "name": "Workbench",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "21fca1ef-1416-4c99-adbc-a553a46c01f9",
+          "name": "Create a reservation workbench session",
+          "request": {
+            "name": "Create a reservation workbench session",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "book",
+                "session",
+                "reservationworkbench"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e68a7159-1bae-437d-aaee-6d68c4cf0d91",
+              "name": "Workbench created",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "book",
+                    "session",
+                    "reservationworkbench"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "0e00dc47-3afd-4a6e-9171-b2926abd5935",
+          "name": "Build a workbench from an existing locator",
+          "request": {
+            "name": "Build a workbench from an existing locator",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "book",
+                "session",
+                "reservationworkbench",
+                "buildfromlocator"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "de97fb60-1117-4fd7-87a4-51a851f55d58",
+              "name": "Workbench",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "book",
+                    "session",
+                    "reservationworkbench",
+                    "buildfromlocator"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb942f4b-c7c1-4744-8ac0-d42267d5dd13",
+          "name": "Retrieve a workbench by identifier",
+          "request": {
+            "name": "Retrieve a workbench by identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "book",
+                "session",
+                "reservationworkbench",
+                ":Identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "Identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "fbd7be7e-fda5-4343-8888-073cf2b4d3ad",
+              "name": "Workbench",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "book",
+                    "session",
+                    "reservationworkbench",
+                    ":Identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "Identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "147845d7-1dce-40f0-88a7-2903d9af9d1d",
+          "name": "Delete a workbench by identifier",
+          "request": {
+            "name": "Delete a workbench by identifier",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "book",
+                "session",
+                "reservationworkbench",
+                ":Identifier"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": [
+                {
+                  "disabled": false,
+                  "type": "any",
+                  "value": "<string>",
+                  "key": "Identifier",
+                  "description": "(Required) "
+                }
+              ]
+            },
+            "method": "DELETE",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0d82ff08-643e-4614-af36-7d8b7f14dff5",
+              "name": "Deleted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "book",
+                    "session",
+                    "reservationworkbench",
+                    ":Identifier"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "disabled": false,
+                      "type": "any",
+                      "value": "<string>",
+                      "key": "Identifier",
+                      "description": "(Required) "
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "DELETE",
+                "body": {}
+              },
+              "status": "No Content",
+              "code": 204,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.travelport.net/11",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "5649436e-b4bb-493e-a846-fb2f54aa0407",
+    "name": "Travelport TripServices Flights Booking Workbench API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful JSON API for end-to-end air travel workflows (search, price, book,\nticket, cancel, exchange) over GDS and NDC content. Endpoints derived from\nthe Travelport developer portal at https://developer.travelport.com/apis/flights.\n\n\nContact Support:\n Name: Travelport Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

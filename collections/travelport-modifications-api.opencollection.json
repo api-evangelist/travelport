@@ -1,0 +1,64 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Modifications API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Modifications",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Divide a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/divide"
+          },
+          "docs": "Divide a reservation"
+        },
+        {
+          "info": {
+            "name": "Modify a reservation by identifier (NDC)",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/modify/reservations/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Modify a reservation by identifier (NDC)"
+        },
+        {
+          "info": {
+            "name": "NDC change catalog offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/change/catalogofferingsairchange"
+          },
+          "docs": "NDC change catalog offerings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

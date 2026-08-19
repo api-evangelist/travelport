@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "4730e3a8-9256-476a-be8c-1db9cbdc4ca7",
+      "name": "Fare Rules",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "de5c6e37-a75f-4489-90bb-a5b783b712f3",
+          "name": "Fare rules from an offer",
+          "request": {
+            "name": "Fare rules from an offer",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "farerule",
+                "farerules",
+                "fromoffer"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c2bcf025-010a-48e2-b8e1-d72bbe025273",
+              "name": "Fare rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "farerule",
+                    "farerules",
+                    "fromoffer"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "84e90030-d588-4f54-9dca-819e4bba2227",
+          "name": "Fare rules from a reservation",
+          "request": {
+            "name": "Fare rules from a reservation",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "farerule",
+                "farerules",
+                "fromreservation"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "64f400b6-48fe-4ca3-bdd1-2495c0c1593a",
+              "name": "Fare rules",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "farerule",
+                    "farerules",
+                    "fromreservation"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.travelport.net/11",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3eec7324-fbda-40a0-a2e6-96f59bbd5560",
+    "name": "Travelport TripServices Flights Booking Fare Rules API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful JSON API for end-to-end air travel workflows (search, price, book,\nticket, cancel, exchange) over GDS and NDC content. Endpoints derived from\nthe Travelport developer portal at https://developer.travelport.com/apis/flights.\n\n\nContact Support:\n Name: Travelport Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

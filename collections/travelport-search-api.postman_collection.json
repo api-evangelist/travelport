@@ -1,0 +1,254 @@
+{
+  "item": [
+    {
+      "id": "b03d7f33-53a1-4356-b4b1-38c754ab1b41",
+      "name": "Search",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "8f798434-576f-4158-a78d-59fb0a6b80c0",
+          "name": "Air availability search",
+          "request": {
+            "name": "Air availability search",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "search",
+                "airAvailability"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9c520c02-7cab-43c1-b6c9-ecf2f01bf148",
+              "name": "Availability response",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "search",
+                    "airAvailability"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "bb87f378-15f1-443f-b0ee-e139d5251b7d",
+          "name": "Search catalog product offerings",
+          "request": {
+            "name": "Search catalog product offerings",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "catalog",
+                "search",
+                "catalogproductofferings"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b914b1c6-d87b-4a95-a9b0-9a8d6baedf9e",
+              "name": "Catalog offerings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "catalog",
+                    "search",
+                    "catalogproductofferings"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f9dc1133-f095-4333-8f4a-b95f6d02b581",
+          "name": "Build next page of catalog offerings",
+          "request": {
+            "name": "Build next page of catalog offerings",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "catalog",
+                "search",
+                "catalogproductofferings",
+                "buildnext"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "495a4a8b-6785-4a3d-b4f1-ffedd4ca8289",
+              "name": "Next page",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "catalog",
+                    "search",
+                    "catalogproductofferings",
+                    "buildnext"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.travelport.net/11",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "4f28cdd4-9249-47bf-a16a-afeeae1bb2e0",
+    "name": "Travelport TripServices Flights Booking Search API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful JSON API for end-to-end air travel workflows (search, price, book,\nticket, cancel, exchange) over GDS and NDC content. Endpoints derived from\nthe Travelport developer portal at https://developer.travelport.com/apis/flights.\n\n\nContact Support:\n Name: Travelport Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

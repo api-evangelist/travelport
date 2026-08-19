@@ -1,0 +1,57 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Search API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Search",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Air availability search",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/search/airAvailability"
+          },
+          "docs": "Air availability search"
+        },
+        {
+          "info": {
+            "name": "Search catalog product offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/catalog/search/catalogproductofferings"
+          },
+          "docs": "Search catalog product offerings"
+        },
+        {
+          "info": {
+            "name": "Build next page of catalog offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/catalog/search/catalogproductofferings/buildnext"
+          },
+          "docs": "Build next page of catalog offerings"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

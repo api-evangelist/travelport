@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Fare Rules API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Fare Rules",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Fare rules from an offer",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/farerule/farerules/fromoffer"
+          },
+          "docs": "Fare rules from an offer"
+        },
+        {
+          "info": {
+            "name": "Fare rules from a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/farerule/farerules/fromreservation"
+          },
+          "docs": "Fare rules from a reservation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

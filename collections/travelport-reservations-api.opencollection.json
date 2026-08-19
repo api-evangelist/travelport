@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Reservations API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Reservations",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve a reservation by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a reservation by identifier"
+        },
+        {
+          "info": {
+            "name": "Operate on a reservation by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Operate on a reservation by identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve reservation by locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/getbylocator"
+          },
+          "docs": "Retrieve reservation by locator"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

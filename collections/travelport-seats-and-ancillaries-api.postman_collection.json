@@ -1,0 +1,183 @@
+{
+  "item": [
+    {
+      "id": "a38c63c6-a1b6-4350-9ac4-fcf413d975c1",
+      "name": "Seats and Ancillaries",
+      "description": {
+        "content": "",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "f4a3907b-0d03-4280-9896-fbebc21d0e48",
+          "name": "Search seat availability",
+          "request": {
+            "name": "Search seat availability",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "search",
+                "seat",
+                "catalogofferingsancillaries",
+                "seatavailabilities"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "2f198f12-4981-4b9d-98e5-640dfec5be93",
+              "name": "Seat availability",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "search",
+                    "seat",
+                    "catalogofferingsancillaries",
+                    "seatavailabilities"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c96498d5-f086-4c2d-98ec-a2311820df36",
+          "name": "Shop for ancillaries",
+          "request": {
+            "name": "Shop for ancillaries",
+            "description": {},
+            "url": {
+              "path": [
+                "air",
+                "ancillaryshop",
+                "catalogofferingsancillaries"
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [],
+              "variable": []
+            },
+            "method": "POST",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "16bdf6a8-ab24-4ce0-9635-b59eb3dd398f",
+              "name": "Ancillary offerings",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    "air",
+                    "ancillaryshop",
+                    "catalogofferingsancillaries"
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": []
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: bearer",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "Bearer <token>"
+                  }
+                ],
+                "method": "POST",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "type": "string",
+      "value": "https://api.travelport.net/11",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "bearer",
+    "bearer": [
+      {
+        "key": "token",
+        "value": "{{bearerToken}}"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "a0dbb859-d3fb-45a2-8d0d-fea9ae9bcdbe",
+    "name": "Travelport TripServices Flights Booking Seats and Ancillaries API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "RESTful JSON API for end-to-end air travel workflows (search, price, book,\nticket, cancel, exchange) over GDS and NDC content. Endpoints derived from\nthe Travelport developer portal at https://developer.travelport.com/apis/flights.\n\n\nContact Support:\n Name: Travelport Developer Support",
+      "type": "text/plain"
+    }
+  }
+}

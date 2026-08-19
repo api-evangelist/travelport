@@ -1,0 +1,35 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Booking",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Build a reservation",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/reservation/reservations/build"
+          },
+          "docs": "Build a reservation"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

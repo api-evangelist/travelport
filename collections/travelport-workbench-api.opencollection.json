@@ -1,0 +1,82 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Workbench API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Workbench",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Create a reservation workbench session",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench"
+          },
+          "docs": "Create a reservation workbench session"
+        },
+        {
+          "info": {
+            "name": "Build a workbench from an existing locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench/buildfromlocator"
+          },
+          "docs": "Build a workbench from an existing locator"
+        },
+        {
+          "info": {
+            "name": "Retrieve a workbench by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve a workbench by identifier"
+        },
+        {
+          "info": {
+            "name": "Delete a workbench by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "DELETE",
+            "url": "https://api.travelport.net/11/air/book/session/reservationworkbench/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Delete a workbench by identifier"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

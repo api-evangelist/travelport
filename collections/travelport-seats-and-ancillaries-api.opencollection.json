@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Seats and Ancillaries API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Seats and Ancillaries",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Search seat availability",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/search/seat/catalogofferingsancillaries/seatavailabilities"
+          },
+          "docs": "Search seat availability"
+        },
+        {
+          "info": {
+            "name": "Shop for ancillaries",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/ancillaryshop/catalogofferingsancillaries"
+          },
+          "docs": "Shop for ancillaries"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

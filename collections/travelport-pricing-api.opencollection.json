@@ -1,0 +1,46 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking Pricing API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Pricing",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Build priced offer from catalog product offerings",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/price/offers/buildfromcatalogproductofferings"
+          },
+          "docs": "Build priced offer from catalog product offerings"
+        },
+        {
+          "info": {
+            "name": "Build priced offer from products",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://api.travelport.net/11/air/price/offers/buildfromproducts"
+          },
+          "docs": "Build priced offer from products"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

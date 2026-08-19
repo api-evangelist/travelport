@@ -1,0 +1,71 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Travelport TripServices Flights Booking EMDs API",
+    "version": "11"
+  },
+  "request": {
+    "auth": {
+      "type": "bearer",
+      "token": "{{bearerToken}}"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "EMDs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Retrieve an EMD by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/emds/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Retrieve an EMD by identifier"
+        },
+        {
+          "info": {
+            "name": "Update an EMD by identifier",
+            "type": "http"
+          },
+          "http": {
+            "method": "PUT",
+            "url": "https://api.travelport.net/11/air/emds/:Identifier",
+            "params": [
+              {
+                "name": "Identifier",
+                "value": "",
+                "type": "path"
+              }
+            ]
+          },
+          "docs": "Update an EMD by identifier"
+        },
+        {
+          "info": {
+            "name": "Retrieve EMDs by locator",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://api.travelport.net/11/air/emds/getbylocator"
+          },
+          "docs": "Retrieve EMDs by locator"
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
