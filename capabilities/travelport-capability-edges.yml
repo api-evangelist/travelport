@@ -1,0 +1,63 @@
+slug: travelport
+provider: Travelport
+generated_by: planning/capability-mapping/scripts/classify_capabilities.py
+model: claude-opus-5
+frame:
+- Travel & Hospitality
+min_confidence: 0.7
+capability_model:
+  source: https://github.com/vincentmakes/turbo-ea-capabilities
+  license: CC-BY-4.0
+  attribution: Turbo EA Capabilities by Vincent Verdet — Turbo EA, https://github.com/vincentmakes/turbo-ea-capabilities,
+    CC BY 4.0
+  notice: NOTICE
+edge_count: 5
+edges:
+- tag: Booking
+  spec_file: travelport-booking-api-openapi.yml
+  capability_id: BC-4020.10
+  capability_id_l1: BC-4020
+  capability_name: Reservation Capture
+  confidence: 0.88
+  evidence: POST /air/book/reservation/reservations/build — "Build a reservation"
+  reason: The single operation creates an air reservation from an offer, which is reservation capture
+    in the booking lifecycle.
+- tag: Modifications
+  spec_file: travelport-modifications-api-openapi.yml
+  capability_id: BC-4020.20
+  capability_id_l1: BC-4020
+  capability_name: Booking Modification & Cancellation
+  confidence: 0.88
+  evidence: POST /air/modify/reservations/{Identifier} "Modify a reservation by identifier (NDC)"; POST
+    .../reservations/divide "Divide a reservation"
+  reason: Operations perform voluntary changes to existing reservations (modify, divide, change offerings),
+    which is booking modification.
+- tag: Reservations
+  spec_file: travelport-reservations-api-openapi.yml
+  capability_id: BC-4020
+  capability_id_l1: BC-4020
+  capability_name: Reservation & Booking Management
+  confidence: 0.82
+  evidence: GET /air/book/reservation/reservations/{Identifier} "Retrieve a reservation by identifier";
+    GET .../getbylocator "Retrieve reservation by locator"
+  reason: Operations read and act on existing PNR/reservation records, squarely reservation and booking
+    lifecycle management; the sub-capability is not pinned down by generic retrieve/operate summaries.
+- tag: Ticketing
+  spec_file: travelport-ticketing-api-openapi.yml
+  capability_id: BC-4020.40
+  capability_id_l1: BC-4020
+  capability_name: Reservation Confirmation & Documentation
+  confidence: 0.72
+  evidence: GET /air/ticket/tickets/{Identifier} "Retrieve a ticket by identifier"; PUT /air/ticket/tickets/updatestatus/{Identifier};
+    POST /documents/void "Void documents"
+  reason: Issuance, status maintenance and voiding of e-tickets and travel documents against bookings
+    maps to reservation confirmation and documentation.
+- tag: Fare Rules
+  spec_file: travelport-fare-rules-api-openapi.yml
+  capability_id: BC-4000.20
+  capability_id_l1: BC-4000
+  capability_name: Air Product Management
+  confidence: 0.7
+  evidence: GET /air/farerule/farerules/fromoffer — "Fare rules from an offer"
+  reason: Operations expose airline fare rule content attached to offers and reservations, which is air
+    fare product definition/attribute data rather than reservation lifecycle action.

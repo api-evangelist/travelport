@@ -236,6 +236,9 @@ apis:
   - type: OpenAPI
     url: openapi/travelport-workbench-api-openapi.yml
 common:
+- type: CapabilityMap
+  url: capabilities/travelport-capability-edges.yml
+  name: Travelport Business Capability Map
 - type: AgenticAccess
   url: agentic-access/travelport-agentic-access.yml
 - type: DomainSecurity
