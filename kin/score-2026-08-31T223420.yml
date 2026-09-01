@@ -1,28 +1,31 @@
-# Kin Score artifact — travelport — 2026-08-01T171935
+# Kin Score artifact — travelport — 2026-08-31T223420
 # The API Evangelist rating (https://github.com/api-evangelist/kin-score). Generated; do not edit.
 ---
 kin_score:
   slug: travelport
-  schema_version: 0.9
-  scored_at: '2026-08-01'
-  run_ts: 2026-08-01T171935
+  schema_version: 0.17.2
+  scored_at: '2026-08-31'
+  run_ts: 2026-08-31T223420
   composite: 26.9
-  band: emerging
+  band: thin
   facets:
-    discoverability: 74.1
-    contract_quality: 60.1
+    discoverability: 75.9
+    contract_quality: 53.6
     governance: 0.0
-    operational_transparency: 5.3
-    developer_ergonomics: 26.1
+    operational_transparency: 2.6
+    developer_ergonomics: 38.1
     commercial_clarity: 0.0
+    contract_governance: 0.0
+    access_clarity: 0.0
   agent_readiness:
-    score: 27.5
+    score: 19.0
     band: agent-aware
     dimensions:
       spec_presence: true
       agentic_access: derived
+      reversibility_documented: documented
       mcp_server: false
-      auth_clarity: true
+      auth_clarity: bearer
       idempotency: false
       error_semantics: false
       openapi_examples: false
@@ -33,6 +36,10 @@ kin_score:
       consent_identity: false
       agent_card: false
       dry_run_mode: false
+      delegated_identity: false
+      protected_resource_metadata: false
+      dynamic_client_registration: false
+      agentic_commerce: false
   regulatory:
     applies: true
     regime: Payments
