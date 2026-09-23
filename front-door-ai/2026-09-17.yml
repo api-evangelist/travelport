@@ -1,0 +1,29 @@
+# Front Door AI Index — travelport — 2026-09-17
+# AI vocabulary counted on the provider's root page. Generated; do not edit.
+# `score` is null unless ownership is `own` — see front_door_ai.py.
+front_door_ai:
+  slug: travelport
+  lexicon_version: '1.0'
+  probed_at: '2026-09-17'
+  host: www.travelport.com
+  final_host: www.travelport.com
+  ownership: own
+  owner: travelport
+  shares_host_with: null
+  inherited_from: null
+  verdict: scored
+  score: 15
+  host_score: 15
+  density: 18.8
+  words: 798
+  tiers:
+    agentic: 1
+    core: 11
+    model: 3
+  ambiguous: 3
+  top_terms:
+    AI: 11
+    Anthropic: 3
+    agent: 2
+    automation: 1
+    chatbot: 1

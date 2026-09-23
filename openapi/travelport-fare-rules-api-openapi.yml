@@ -1,14 +1,12 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Travelport TripServices Flights Booking Fare Rules API
+  title: Travelport TripServices Flights Fare Rules API
   version: '11'
   description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
 
     ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
 
-    the Travelport developer portal at https://developer.travelport.com/apis/flights.
-
-    '
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.'
   contact:
     name: Travelport Developer Support
     url: https://developer.travelport.com/support
@@ -30,6 +28,8 @@ paths:
       responses:
         '200':
           description: Fare rules
+      operationId: getAirFareruleFarerulesFromoffer
+      x-operation-id-source: derived
   /air/farerule/farerules/fromreservation:
     get:
       tags:
@@ -38,6 +38,8 @@ paths:
       responses:
         '200':
           description: Fare rules
+      operationId: getAirFareruleFarerulesFromreservation
+      x-operation-id-source: derived
 components:
   securitySchemes:
     BearerAuth:

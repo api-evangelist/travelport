@@ -1,14 +1,12 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
-  title: Travelport TripServices Flights Booking Ticketing API
+  title: Travelport TripServices Flights Ticketing API
   version: '11'
   description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
 
     ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
 
-    the Travelport developer portal at https://developer.travelport.com/apis/flights.
-
-    '
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.'
   contact:
     name: Travelport Developer Support
     url: https://developer.travelport.com/support
@@ -30,6 +28,8 @@ paths:
       responses:
         '200':
           description: Tickets
+      operationId: postAirTicketTicketsGetbylocator
+      x-operation-id-source: derived
   /air/ticket/tickets/{Identifier}:
     get:
       tags:
@@ -44,6 +44,8 @@ paths:
       responses:
         '200':
           description: Ticket
+      operationId: getAirTicketTicketsByIdentifier
+      x-operation-id-source: derived
   /air/ticket/tickets/updatestatus/{Identifier}:
     put:
       tags:
@@ -58,6 +60,8 @@ paths:
       responses:
         '200':
           description: Updated
+      operationId: putAirTicketTicketsUpdatestatusByIdentifier
+      x-operation-id-source: derived
   /documents/void:
     post:
       tags:
@@ -66,6 +70,8 @@ paths:
       responses:
         '200':
           description: Voided
+      operationId: postDocumentsVoid
+      x-operation-id-source: derived
 components:
   securitySchemes:
     BearerAuth:

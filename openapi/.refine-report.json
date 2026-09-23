@@ -1,17 +1,7 @@
 {
   "provider": "travelport",
   "sources": [
-    "travelport-booking-api-openapi.yml",
-    "travelport-emds-api-openapi.yml",
-    "travelport-fare-rules-api-openapi.yml",
-    "travelport-modifications-api-openapi.yml",
-    "travelport-pricing-api-openapi.yml",
-    "travelport-queues-api-openapi.yml",
-    "travelport-reservations-api-openapi.yml",
-    "travelport-search-api-openapi.yml",
-    "travelport-seats-and-ancillaries-api-openapi.yml",
-    "travelport-ticketing-api-openapi.yml",
-    "travelport-workbench-api-openapi.yml"
+    "_original/travelport-openapi.yml"
   ],
   "outputs": [
     "travelport-booking-api-openapi.yml",
@@ -29,6 +19,22 @@
   "archived": [],
   "errors": [],
   "warnings": [],
-  "notes": [],
-  "skipped": []
+  "notes": [
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "travelport-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "apis.yml register: already-registered"
+  ],
+  "skipped": [
+    "travelport-booking-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-emds-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-fare-rules-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-modifications-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-pricing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-queues-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-reservations-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-search-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-seats-and-ancillaries-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-ticketing-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "travelport-workbench-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

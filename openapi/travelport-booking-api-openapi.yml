@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Travelport TripServices Flights Booking API
   version: '11'
@@ -6,9 +6,7 @@ info:
 
     ticket, cancel, exchange) over GDS and NDC content. Endpoints derived from
 
-    the Travelport developer portal at https://developer.travelport.com/apis/flights.
-
-    '
+    the Travelport developer portal at https://developer.travelport.com/apis/flights.'
   contact:
     name: Travelport Developer Support
     url: https://developer.travelport.com/support
@@ -30,6 +28,8 @@ paths:
       responses:
         '200':
           description: Reservation
+      operationId: postAirBookReservationReservationsBuild
+      x-operation-id-source: derived
 components:
   securitySchemes:
     BearerAuth:
