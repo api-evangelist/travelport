@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Travelport TripServices Flights EM Ds API
+  title: Travelport TripServices Flights EMDs API
   version: '11'
   description: 'RESTful JSON API for end-to-end air travel workflows (search, price, book,
 
