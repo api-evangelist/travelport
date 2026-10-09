@@ -1,129 +1,26 @@
-generated: '2026-07-15'
+generated: '2026-09-23'
 method: generated
-source: openapi/travelport-openapi.yml
+source: openapi/travelport-booking-api-openapi.yml, openapi/travelport-emds-api-openapi.yml,
+  openapi/travelport-fare-rules-api-openapi.yml, openapi/travelport-modifications-api-openapi.yml,
+  openapi/travelport-pricing-api-openapi.yml, openapi/travelport-queues-api-openapi.yml, openapi/travelport-reservations-api-openapi.yml,
+  openapi/travelport-search-api-openapi.yml, openapi/travelport-seats-and-ancillaries-api-openapi.yml,
+  openapi/travelport-ticketing-api-openapi.yml, openapi/travelport-workbench-api-openapi.yml
 description: Recommended x-agentic-access execution contracts, classified heuristically from
   the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
   audience per deployment. See research/curity/agentic-governance/.
 summary:
   operations: 30
   by_action_class:
-    acting: 22
-    connected: 8
+    acting: 18
+    connected: 12
   by_consequence:
-    write: 22
-    read: 8
+    write: 18
+    read: 12
   human_in_the_loop_required: 0
 operations:
-- path: /air/search/airAvailability
+- path: /air/book/reservation/reservations/build
   method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/catalog/search/catalogproductofferings
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/catalog/search/catalogproductofferings/buildnext
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/price/offers/buildfromcatalogproductofferings
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/price/offers/buildfromproducts
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/farerule/farerules/fromoffer
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /air/farerule/farerules/fromreservation
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /air/search/seat/catalogofferingsancillaries/seatavailabilities
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/ancillaryshop/catalogofferingsancillaries
-  method: post
+  operationId: postAirBookReservationReservationsBuild
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -139,6 +36,7 @@ operations:
     audit: required
 - path: /air/emds/{Identifier}
   method: get
+  operationId: getAirEmdsByIdentifier
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -148,6 +46,7 @@ operations:
     audit: none
 - path: /air/emds/{Identifier}
   method: put
+  operationId: putAirEmdsByIdentifier
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -163,6 +62,7 @@ operations:
     audit: required
 - path: /air/emds/getbylocator
   method: get
+  operationId: getAirEmdsGetbylocator
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -170,38 +70,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /air/book/session/reservationworkbench
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/book/session/reservationworkbench/buildfromlocator
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/book/session/reservationworkbench/{Identifier}
+- path: /air/farerule/farerules/fromoffer
   method: get
+  operationId: getAirFareruleFarerulesFromoffer
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -209,62 +80,9 @@ operations:
     token:
       max-ttl: 3600
     audit: none
-- path: /air/book/session/reservationworkbench/{Identifier}
-  method: delete
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/book/reservation/reservations/build
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/book/reservation/reservations/{Identifier}
+- path: /air/farerule/farerules/fromreservation
   method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /air/book/reservation/reservations/{Identifier}
-  method: post
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /air/book/reservation/reservations/getbylocator
-  method: get
+  operationId: getAirFareruleFarerulesFromreservation
   x-agentic-access:
     action-class: connected
     consequence: read
@@ -274,6 +92,7 @@ operations:
     audit: none
 - path: /air/book/reservation/reservations/divide
   method: post
+  operationId: postAirBookReservationReservationsDivide
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -289,6 +108,7 @@ operations:
     audit: required
 - path: /air/modify/reservations/{Identifier}
   method: post
+  operationId: postAirModifyReservationsByIdentifier
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -304,6 +124,7 @@ operations:
     audit: required
 - path: /air/change/catalogofferingsairchange
   method: post
+  operationId: postAirChangeCatalogofferingsairchange
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -317,8 +138,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /air/ticket/tickets/getbylocator
+- path: /air/price/offers/buildfromcatalogproductofferings
   method: post
+  operationId: postAirPriceOffersBuildfromcatalogproductofferings
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -332,32 +154,9 @@ operations:
       - abnormal
       - high-value
     audit: required
-- path: /air/ticket/tickets/{Identifier}
-  method: get
-  x-agentic-access:
-    action-class: connected
-    consequence: read
-    subject: optional
-    token:
-      max-ttl: 3600
-    audit: none
-- path: /air/ticket/tickets/updatestatus/{Identifier}
-  method: put
-  x-agentic-access:
-    action-class: acting
-    consequence: write
-    subject: required
-    audience: null
-    token:
-      max-ttl: 900
-    escalation:
-      human-in-the-loop: conditional
-      triggers:
-      - abnormal
-      - high-value
-    audit: required
-- path: /documents/void
+- path: /air/price/offers/buildfromproducts
   method: post
+  operationId: postAirPriceOffersBuildfromproducts
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -373,6 +172,7 @@ operations:
     audit: required
 - path: /air/queue/queue
   method: post
+  operationId: postAirQueueQueue
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -388,6 +188,7 @@ operations:
     audit: required
 - path: /air/queue/queue/remove
   method: post
+  operationId: postAirQueueQueueRemove
   x-agentic-access:
     action-class: acting
     consequence: write
@@ -403,6 +204,215 @@ operations:
     audit: required
 - path: /air/queue/queue/list
   method: post
+  operationId: postAirQueueQueueList
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/book/reservation/reservations/{Identifier}
+  method: get
+  operationId: getAirBookReservationReservationsByIdentifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/book/reservation/reservations/{Identifier}
+  method: post
+  operationId: postAirBookReservationReservationsByIdentifier
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air/book/reservation/reservations/getbylocator
+  method: get
+  operationId: getAirBookReservationReservationsGetbylocator
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/search/airAvailability
+  method: post
+  operationId: postAirSearchAirAvailability
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air/catalog/search/catalogproductofferings
+  method: post
+  operationId: postAirCatalogSearchCatalogproductofferings
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/catalog/search/catalogproductofferings/buildnext
+  method: post
+  operationId: postAirCatalogSearchCatalogproductofferingsBuildnext
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air/search/seat/catalogofferingsancillaries/seatavailabilities
+  method: post
+  operationId: postAirSearchSeatCatalogofferingsancillariesSeatavailabilities
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/ancillaryshop/catalogofferingsancillaries
+  method: post
+  operationId: postAirAncillaryshopCatalogofferingsancillaries
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air/ticket/tickets/getbylocator
+  method: post
+  operationId: postAirTicketTicketsGetbylocator
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/ticket/tickets/{Identifier}
+  method: get
+  operationId: getAirTicketTicketsByIdentifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/ticket/tickets/updatestatus/{Identifier}
+  method: put
+  operationId: putAirTicketTicketsUpdatestatusByIdentifier
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /documents/void
+  method: post
+  operationId: postDocumentsVoid
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air/book/session/reservationworkbench
+  method: post
+  operationId: postAirBookSessionReservationworkbench
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air/book/session/reservationworkbench/buildfromlocator
+  method: post
+  operationId: postAirBookSessionReservationworkbenchBuildfromlocator
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /air/book/session/reservationworkbench/{Identifier}
+  method: get
+  operationId: getAirBookSessionReservationworkbenchByIdentifier
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /air/book/session/reservationworkbench/{Identifier}
+  method: delete
+  operationId: deleteAirBookSessionReservationworkbenchByIdentifier
   x-agentic-access:
     action-class: acting
     consequence: write
