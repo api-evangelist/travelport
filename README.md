@@ -1,4 +1,4 @@
-# Travelport (travelport)
+# Travelport
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,119 +66,128 @@
 
 A global travel technology company connecting travel providers with online and offline travel agencies. Operates a commerce platform facilitating airline, hotel, and car rental bookings through its Galileo, Apollo, and Worldspan systems.
 
-**APIs.json:** [https://raw.githubusercontent.com/api-evangelist/travelport/refs/heads/main/apis.yml](https://raw.githubusercontent.com/api-evangelist/travelport/refs/heads/main/apis.yml)
+**Areas:** Travel · Travel Technology · Reservations · GDS · NDC · Flights · Hotels · Payments
 
-## Scope
+## Travelport on APIs.io
 
-- **Type:** Index
+Everything profiled for Travelport is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/travelport/](https://apis.io/providers/travelport/)** — or go straight to one of the APIs or properties below.
 
-## Tags
+### APIs (14)
 
-- Travel
-- Travel Technology
-- Reservations
-- GDS
-- NDC
-- Flights
-- Hotels
-- Payments
+- [Travelport TripServices Flights API](https://apis.io/apis/travelport/trip-services-flights/) — RESTful JSON API providing end-to-end air travel workflows including search, price, book, ticket, cancel, and exchange. Covers both GDS and NDC content from…
+- [Travelport TripServices Stays API](https://apis.io/apis/travelport/trip-services-stays/) — RESTful JSON API for hotel search, availability, rules, reservation management, and modification across 180+ countries. Supports searches by coordinates,…
+- [Travelport TripServices Pay API](https://apis.io/apis/travelport/trip-services-pay/) — RESTful JSON payments API enabling online travel agencies to perform credit card authorizations, address validations, 3D Secure transactions, and reversals…
+- [Travelport Booking API](https://apis.io/apis/travelport/travelport-booking-api/) — The Booking API from Travelport — 1 operation(s) for booking.
+- [Travelport EMDs API](https://apis.io/apis/travelport/travelport-emds-api/) — The EMDs API from Travelport — 2 operation(s) for emds.
+- [Travelport Fare Rules API](https://apis.io/apis/travelport/travelport-fare-rules-api/) — The Fare Rules API from Travelport — 2 operation(s) for fare rules.
+- [Travelport Modifications API](https://apis.io/apis/travelport/travelport-modifications-api/) — The Modifications API from Travelport — 3 operation(s) for modifications.
+- [Travelport Pricing API](https://apis.io/apis/travelport/travelport-pricing-api/) — The Pricing API from Travelport — 2 operation(s) for pricing.
+- [Travelport Queues API](https://apis.io/apis/travelport/travelport-queues-api/) — The Queues API from Travelport — 3 operation(s) for queues.
+- [Travelport Reservations API](https://apis.io/apis/travelport/travelport-reservations-api/) — The Reservations API from Travelport — 2 operation(s) for reservations.
+- [Travelport Search API](https://apis.io/apis/travelport/travelport-search-api/) — The Search API from Travelport — 3 operation(s) for search.
+- [Travelport Seats and Ancillaries API](https://apis.io/apis/travelport/travelport-seats-and-ancillaries-api/) — The Seats and Ancillaries API from Travelport — 2 operation(s) for seats and ancillaries.
+- [Travelport Ticketing API](https://apis.io/apis/travelport/travelport-ticketing-api/) — The Ticketing API from Travelport — 4 operation(s) for ticketing.
+- [Travelport Workbench API](https://apis.io/apis/travelport/travelport-workbench-api/) — The Workbench API from Travelport — 3 operation(s) for workbench.
 
-## Timestamps
+### Published properties
 
-- **Created:** 2026-05-05
-- **Modified:** 2026-05-16
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-## APIs
+#### GraphQL (1)
 
-### Travelport TripServices Flights API
+GraphQL schemas.
 
-RESTful JSON API providing end-to-end air travel workflows including search, price, book, ticket, cancel, and exchange. Covers both GDS and NDC content from 400+ airlines and low-cost carriers, with workbench-based or single-payload booking flows.
+- [Moved to /providers/travelport/](https://apis.io/graphqls/travelport/travelport-graphql/)
 
-- **Human URL:** [https://developer.travelport.com/apis/flights](https://developer.travelport.com/apis/flights)
-- **Base URL:** `https://api.travelport.net/11`
+#### Agentic access (1)
 
-#### Tags
+Which operations an agent can call, which act, and which need a human in the loop.
 
-- Flights
-- Air
-- GDS
-- NDC
-- Reservations
-- Ticketing
-- Travel
+- [Travelport Agentic Access](https://apis.io/agentic-access/travelport/travelport-agentic-access/)
 
-#### Properties
+#### Collections (12)
 
-- [Documentation](https://developer.travelport.com/apis/flights)
-- [Getting Started](https://developer.travelport.com/)
-- [Sandbox](https://api.pp.travelport.net/11)
-- [Production](https://api.travelport.net/11)
-- [Authentication](https://developer.travelport.com/)
-- [Postman Collection](collections/travelport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/travelport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+Postman and Open Collection request collections.
 
-### Travelport TripServices Stays API
+- [Travelport TripServices Flights API](https://apis.io/collections/travelport/open-travelport/)
+- [Travelport TripServices Flights Booking API](https://apis.io/collections/travelport/open-travelport-booking-api/)
+- [Travelport TripServices Flights Booking EMDs API](https://apis.io/collections/travelport/open-travelport-emds-api/)
+- [Travelport TripServices Flights Booking Fare Rules API](https://apis.io/collections/travelport/open-travelport-fare-rules-api/)
+- [Travelport TripServices Flights Booking Modifications API](https://apis.io/collections/travelport/open-travelport-modifications-api/)
+- [Travelport TripServices Flights Booking Pricing API](https://apis.io/collections/travelport/open-travelport-pricing-api/)
+- [Travelport TripServices Flights Booking Queues API](https://apis.io/collections/travelport/open-travelport-queues-api/)
+- [Travelport TripServices Flights Booking Reservations API](https://apis.io/collections/travelport/open-travelport-reservations-api/)
+- [Travelport TripServices Flights Booking Search API](https://apis.io/collections/travelport/open-travelport-search-api/)
+- [Travelport TripServices Flights Booking Seats and Ancillaries API](https://apis.io/collections/travelport/open-travelport-seats-and-ancillaries-api/)
+- [Travelport TripServices Flights Booking Ticketing API](https://apis.io/collections/travelport/open-travelport-ticketing-api/)
+- [Travelport TripServices Flights Booking Workbench API](https://apis.io/collections/travelport/open-travelport-workbench-api/)
 
-RESTful JSON API for hotel search, availability, rules, reservation management, and modification across 180+ countries. Supports searches by coordinates, address, airport/city code, or property ID, plus passive-segment bookings for external suppliers.
+#### Security (2)
 
-- **Human URL:** [https://developer.travelport.com/apis/stays/12.1.2](https://developer.travelport.com/apis/stays/12.1.2)
-- **Base URL:** `https://api.travelport.net/11`
+Authentication, trust centre, and vulnerability disclosure.
 
-#### Tags
+- [Travelport Authentication](https://apis.io/security/travelport/travelport-authentication/)
+- [Travelport Domain Security](https://apis.io/security/travelport/travelport-domain-security/)
 
-- Stays
-- Hotels
-- Lodging
-- Reservations
-- Travel
+## Where to find this API
 
-#### Properties
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
 
-- [Documentation](https://developer.travelport.com/apis/stays/12.1.2)
-- [Sandbox](https://api.pp.travelport.net/11)
-- [Production](https://api.travelport.net/11)
-- [Postman Collection](collections/travelport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/travelport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-### Travelport TripServices Pay API
-
-RESTful JSON payments API enabling online travel agencies to perform credit card authorizations, address validations, 3D Secure transactions, and reversals against designated merchant vendors. Current version 11.33.0.
-
-- **Human URL:** [https://developer.travelport.com/apis/pay](https://developer.travelport.com/apis/pay)
-- **Base URL:** `https://api.travelport.net/11/payment`
-
-#### Tags
-
-- Payments
-- 3D Secure
-- Authorizations
-- Travel
-
-#### Properties
-
-- [Documentation](https://developer.travelport.com/apis/pay)
-- [Sandbox](https://api.pp.travelport.net/11/payment)
-- [Production](https://api.travelport.net/11/payment)
-- [Postman Collection](collections/travelport.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/travelport.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
-
-## Common Properties
-
-- [GitHub Organization](https://github.com/travelport)
-- [LinkedIn](https://www.linkedin.com/company/travelport)
 - [Website](https://www.travelport.com/)
-- [Developer](https://developer.travelport.com/)
-- [Getting Started](https://developer.travelport.com/getting-started)
-- [Dev Kits](https://developer.travelport.com/downloads)
+- [Getting started](https://developer.travelport.com/getting-started)
 - [Support](https://developer.travelport.com/support)
-- [Legacy Portal](https://support.travelport.com/)
-- [About](https://www.travelport.com/about-us)
-- [News](https://www.travelport.com/news)
-- [Investors](https://investors.travelport.com/)
-- [Careers](https://www.travelport.com/careers)
-- [L L Ms Txt](https://developer.travelport.com/llms.txt)
+- [Blog](https://www.travelport.com/blog)
+- [GitHub](https://github.com/travelport)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** API Evangelist
-**Email:** info@apievangelist.com
+**Kin Score 25.1** — emerging · rubric 0.24.0 · scored 2026-10-17
+
+| Facet | Score |
+|---|---|
+| Discoverability | 74.1 |
+| Contract quality | 45.3 |
+| Contract governance | 0.0 |
+| Operational transparency | 2.6 |
+| Developer ergonomics | 40.5 |
+| Access clarity | 0.0 |
+
+**Agent readiness 19.0** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | documented (partial credit) |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | — |
+| Error Semantics | — |
+| OpenAPI Examples | — |
+| Rate Limit Signal | — |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | — |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+
+**Regulatory alignment 10.7** — Payments
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/travelport/](https://apis.io/providers/travelport/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Travelport: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/travelport/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
